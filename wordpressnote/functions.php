@@ -1,7 +1,7 @@
 <?php
 
 // 基本設定
-function mytheme_setup() {
+function wordpressnote_setup() {
 
   // ページのタイトルを出力
   add_theme_support( 'title-tag' );
@@ -15,4 +15,4 @@ function mytheme_setup() {
   ) );
 }
 
-add_action( 'after_setup_theme', 'mytheme_setup' );
+add_action( 'after_setup_theme', 'wordpressnote_setup' );
