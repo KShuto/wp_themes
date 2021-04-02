@@ -18,8 +18,15 @@
       </a>
     </header>
 
-    <nav>
-    </nav>
+    <!-- メニューが配置されている場合だけ -->
+    <?php if( has_nav_menu( 'primary' ) ): ?>
+      <nav>
+        <!-- メニューの配置場所をTwenty Twentyと同じ'primary'という名前で用意 -->
+        <?php wp_nav_menu( array(
+          'theme_location' => 'primary',
+        ) ); ?>
+      </nav>
+    <?php endif; ?>
 
     <main>
       <?php if(have_posts()):
