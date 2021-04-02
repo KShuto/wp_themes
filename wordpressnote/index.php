@@ -34,9 +34,10 @@
           the_post(); ?>
           <!-- 記事のひとまとまりを明示 -->
           <article <?php post_class(); ?>>
-            <!-- アイキャッチ画像の指定がある場合は出力 -->
+            <!-- アイキャッチ画像の指定がある場合だけ -->
             <?php if( has_post_thumbnail() ): ?>
               <figure>
+                <!-- アイキャッチ画像を出力 -->
                 <?php the_post_thumbnail(); ?>
               </figure>
             <?php endif; ?>
@@ -49,8 +50,13 @@
       endif; ?>
     </main>
 
-    <aside>
-    </aside>
+    <!-- サイドバー1にウィジットが配置されている場合だけ -->
+    <?php if( is_active_sidebar( 'sidebar-1' ) ): ?>
+      <aside>
+        <!-- ウィジットエリアを用意 -->
+        <?php dynamic_sidebar( 'sidebar-1' ); ?>
+      </aside>
+    <?php endif; ?>
 
     <footer>
       <?php bloginfo( 'name' ); ?>

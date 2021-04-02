@@ -16,3 +16,18 @@ function wordpressnote_setup() {
 }
 
 add_action( 'after_setup_theme', 'wordpressnote_setup' );
+
+// ウィジット
+function wordpressnote_widgets() {
+  // ウィジットエリア名を「sidebar-1」
+  // 設定画面に表示するときの名称を「サイドメニュー」
+  // ウィジットを個別のパーツとして扱うために<li>ではなく<section>に
+  register_sidebar( array(
+    'id' => 'sidebar-1',
+    'name' => 'サイドメニュー',
+    'before_widget' => '<section id="%1$s" class="widget %2$s">',
+    'after_widget' => '</section>'
+  ) );
+}
+
+add_action( 'widgets_init', 'wordpressnote_widgets');
