@@ -11,6 +11,11 @@
     <?php wp_body_open(); ?>
 
     <header>
+      <!-- トップページのurlをhome_url('/')で取得 -->
+      <!-- esc_url()でエスケープ処理をかけている -->
+      <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+        <?php bloginfo( 'name' ); ?>
+      </a>
     </header>
 
     <nav>
@@ -41,6 +46,7 @@
     </aside>
 
     <footer>
+      <?php bloginfo( 'name' ); ?>
     </footer>
 
     <?php wp_footer(); ?>
