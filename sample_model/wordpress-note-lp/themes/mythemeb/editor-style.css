@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+
+/* 基本 */
+body {
+	font-family: sans-serif;
+}
+
+p {
+	line-height: 2;
+}
+
+.editor-post-title__input {
+	font-family: inherit;
+}
+
+.wp-block {
+	max-width: 614px;
+}
+
+.wp-block[data-align="wide"] {
+	max-width: 819px;
+}
+
+.wp-block[data-align="full"] {
+	max-width: none;
+}
+
+.wp-block-group .wp-block {
+        max-width: 100%;
+}
