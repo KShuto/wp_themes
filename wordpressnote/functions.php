@@ -13,6 +13,9 @@ function wordpressnote_setup() {
   register_nav_menus( array(
     'primary' => 'メイン',
   ) );
+  //編集画面用のCSS
+  add_theme_support( 'editor-styles' );
+  add_editor_style( 'editor-style.css' );
 }
 
 add_action( 'after_setup_theme', 'wordpressnote_setup' );
