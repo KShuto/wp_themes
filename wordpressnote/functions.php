@@ -31,3 +31,12 @@ function wordpressnote_widgets() {
 }
 
 add_action( 'widgets_init', 'wordpressnote_widgets');
+
+// CSS
+function wordpressnote_enqueue() {
+
+  // テーマのCSS
+  wp_enqueue_style( 'wordpressnote-style', get_stylesheet_uri(), array(), filemtime(  get_template_directory() . '/style.css' ) );
+}
+
+add_action( 'wp_enqueue_scripts', 'wordpressnote_enqueue');

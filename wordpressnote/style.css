@@ -5,3 +5,18 @@ Author: CATWALK
 Description: オリジナルテーマです
 Version: 1.0
 */
+
+/* 基本 */
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
