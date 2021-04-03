@@ -35,6 +35,9 @@ add_action( 'widgets_init', 'wordpressnote_widgets');
 // CSS
 function wordpressnote_enqueue() {
 
+  // Google Fonts
+  wp_enqueue_style( 'wordpressnote-googlefonts', "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap", array(), null );
+
   // テーマのCSS
   wp_enqueue_style( 'wordpressnote-style', get_stylesheet_uri(), array(), filemtime(  get_template_directory() . '/style.css' ) );
 }

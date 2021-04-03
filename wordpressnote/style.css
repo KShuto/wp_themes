@@ -31,6 +31,15 @@ img {
   height: auto;
 }
 
+a {
+  color: #444444;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
 /* グリッド */
 body {
   display: grid;
@@ -48,6 +57,19 @@ header {
   grid-row: head;
   justify-self: center;
   align-self: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: var(--f3);
+  font-weight: bold;
+}
+
+body::before {
+  content: '';
+  background-color: #eeeeee;
+  height: 2px;
+  grid-column: 1 / -1;
+  grid-row: head;
+  align-self: end;
+  margin-bottom: -20px;
 }
 
 nav {
@@ -105,4 +127,15 @@ footer {
   grid-row: foot;
   justify-self: center;
   align-self: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: var(--f6);
+  color: #ffffff;
+}
+
+body::after {
+  content: '';
+  background-color: #666666;
+  grid-column: 1 / -1;
+  grid-row: foot;
+  z-index: -1;
 }
