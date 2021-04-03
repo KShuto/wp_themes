@@ -20,3 +20,50 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+/* グリッド */
+body {
+  display: grid;
+  grid-template-columns: 10px 1fr 10px;
+  grid-template-rows: [head] 100px [main] auto [aside] auto [foot] 100px;
+  grid-row-gap: 50px;
+  row-gap: 50px;
+}
+
+body > * {
+  grid-column: 2 / -2;
+}
+
+header {
+  grid-row: head;
+  justify-self: center;
+  align-self: center;
+}
+
+nav {
+  grid-row: head;
+  justify-self: center;
+  align-self: end;
+}
+
+nav ul {
+  display: grid;
+  grid-auto-flow: column;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+main {
+  grid-row: main;
+}
+
+aside {
+  grid-row: adide;
+}
+
+footer {
+  grid-row: foot;
+  justify-self: center;
+  align-self: center;
+}
