@@ -43,8 +43,13 @@ a:hover {
 /* グリッド */
 body {
   display: grid;
-  grid-template-columns: 10px 1fr 10px;
-  grid-template-rows: [head] 100px [main] auto [aside] auto [foot] 100px;
+  grid-template-columns:
+  10px 1fr 10px;
+  grid-template-rows:
+  [head] 100px
+  [main] auto
+  [aside] auto
+  [foot] 100px;
   grid-row-gap: 50px;
   row-gap: 50px;
 }
@@ -84,6 +89,9 @@ nav ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  grid-column-gap: 20px;
+  column-gap: 20px;
+  font-size: var(--f6);
 }
 
 main {
@@ -120,7 +128,35 @@ p {
 }
 
 aside {
-  grid-row: adide;
+  grid-row: aside;
+  display: grid;
+  grid-row-gap: 30px;
+  row-gap: 30px;
+}
+
+section {
+  border: solid 1px #dddddd;
+  padding: 15px;
+  box-shadow: 0 3px 5px #dddddd;
+}
+
+section h2 {
+  border-bottom: solid 1px #dddddd;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  font-size: var(--f4);
+  font-weight: normal;
+  color: #1b5e92;
+  text-align: center;
+}
+
+section ul {
+  padding: 0;
+  list-style-type: none;
+  font-size: var(--f6);
+  display: grid;
+  grid-row-gap: 15px;
+  row-gap: 15px;
 }
 
 footer {
