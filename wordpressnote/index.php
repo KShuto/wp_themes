@@ -1,67 +1,27 @@
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-  <head>
-    <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport" content="width=device-width">
+<?php get_header(); ?>
 
-    <?php wp_head(); ?>
-  </head>
+<main>
+<?php if(have_posts()):
+while(have_posts()):
+  the_post(); ?>
+<!-- 記事のひとまとまりを明示 -->
+<article <?php post_class(); ?>>
+<!-- アイキャッチ画像の指定がある場合だけ -->
+<?php if( has_post_thumbnail() ): ?>
+<figure>
+<!-- アイキャッチ画像を出力 -->
+<?php the_post_thumbnail(); ?>
+</figure>
+<?php endif; ?>
+<!-- タイトル表示 -->
+<h1><?php the_title(); ?></h1>
+<!-- コンテンツ表示 -->
+<?php the_content(); ?>
+</article>
+<?php endwhile;
+endif; ?>
+</main>
 
-  <body <?php body_class(); ?>>
-    <?php wp_body_open(); ?>
+<?php get_sidebar(); ?>
 
-    <header>
-      <!-- トップページのurlをhome_url('/')で取得 -->
-      <!-- esc_url()でエスケープ処理をかけている -->
-      <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-        <?php bloginfo( 'name' ); ?>
-      </a>
-    </header>
-
-    <!-- メニューが配置されている場合だけ -->
-    <?php if( has_nav_menu( 'primary' ) ): ?>
-      <nav>
-        <!-- メニューの配置場所をTwenty Twentyと同じ'primary'という名前で用意 -->
-        <?php wp_nav_menu( array(
-          'theme_location' => 'primary',
-        ) ); ?>
-      </nav>
-    <?php endif; ?>
-
-    <main>
-      <?php if(have_posts()):
-        while(have_posts()):
-          the_post(); ?>
-          <!-- 記事のひとまとまりを明示 -->
-          <article <?php post_class(); ?>>
-            <!-- アイキャッチ画像の指定がある場合だけ -->
-            <?php if( has_post_thumbnail() ): ?>
-              <figure>
-                <!-- アイキャッチ画像を出力 -->
-                <?php the_post_thumbnail(); ?>
-              </figure>
-            <?php endif; ?>
-            <!-- タイトル表示 -->
-            <h1><?php the_title(); ?></h1>
-            <!-- コンテンツ表示 -->
-            <?php the_content(); ?>
-          </article>
-        <?php endwhile;
-      endif; ?>
-    </main>
-
-    <!-- サイドバー1にウィジットが配置されている場合だけ -->
-    <?php if( is_active_sidebar( 'sidebar-1' ) ): ?>
-      <aside>
-        <!-- ウィジットエリアを用意 -->
-        <?php dynamic_sidebar( 'sidebar-1' ); ?>
-      </aside>
-    <?php endif; ?>
-
-    <footer>
-      <?php bloginfo( 'name' ); ?>
-    </footer>
-
-    <?php wp_footer(); ?>
-  </body>
-</html>
+<?php get_footer(); ?>
