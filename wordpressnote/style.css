@@ -176,6 +176,93 @@ body::after {
   z-index: -1;
 }
 
+/* 記事：カテゴリー */
+.post-categories {
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 10px;
+  cloumn-gap: 10px;
+  justify-content: start;
+  padding: 0;
+  list-style-type: none;
+}
+
+.post-categories a {
+  padding: 3px 10px;
+  border-radius: 10px;
+  background-color: #1b5e92;
+  color: #ffffff;
+  font-size: var(--f6);
+}
+
+time {
+  display: block;
+  text-align: right;
+  color: #444444
+}
+
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+.post-navigation .nav-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 30px;
+  column-gap: 30px;
+  margin-top: 50px;
+  padding: 40px 0;
+  border-top: solid 1px #dddddd;
+  border-bottom: solid 1px #dddddd;
+  font-size: var(--f6);
+}
+
+.post-navigation .nav-previous {
+  grid-column: 1;
+}
+
+.post-navigation .nav-next {
+  grid-column: 2;
+}
+
+.post-navigation .nav-previous a::before {
+  content: '\f137';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: bold;
+  color: #444444;
+}
+
+.post-navigation .nav-next a::after {
+  content: '\f138';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: bold;
+  color: #444444;
+}
+
+.post-navigation .nav-previous a,
+.post-navigation .nav-next a {
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 10px;
+  column-gap: 10px;
+  align-items: center;
+  justify-content: start;
+}
+
+.post-navigation .nav-next a {
+  text-align: right;
+  justify-content: end;
+}
+
 /* PC版 */
 @media (min-width: 1024px) {
 

@@ -37,6 +37,8 @@ add_action( 'widgets_init', 'wordpressnote_widgets' );
 
 // CSS
 function wordpressnote_enqueue() {
+  // Font Awesome
+  wp_enqueue_style( 'wordpressnote-fontawesome', "https://use.fontawesome.com/releases/v5.15.3/css/all.css", array(), null );
 
   // Google Fonts
   wp_enqueue_style( 'wordpressnote-googlefonts', "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap", array(), null );
@@ -45,4 +47,18 @@ function wordpressnote_enqueue() {
   wp_enqueue_style( 'wordpressnote-style', get_stylesheet_uri(), array(), filemtime(  get_template_directory() . '/style.css' ) );
 }
 
-  add_action( 'wp_enqueue_scripts', 'wordpressnote_enqueue' );
+add_action( 'wp_enqueue_scripts', 'wordpressnote_enqueue' );
+
+// Font fontawesomeの属性
+function wordpressnote_sri( $html, $handle ) {
+  if ( $handle === 'wordpressnote-fontawesome' ) {
+    return str_replace(
+      '/>',
+      'integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous"' . ' />',
+      $html
+    );
+  }
+  return $html;
+}
+
+add_filter( 'style_loader_tag', 'wordpressnote_sri', 10, 2 );
