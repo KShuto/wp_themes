@@ -263,6 +263,72 @@ time {
   justify-content: end;
 }
 
+/* 記事一覧 */
+.postlist a {
+  display: block;
+}
+
+.postlist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
+  gap: 15px;
+  --imgh: 56vw;
+}
+
+.postlist article {
+  border: solid 1px #dddddd;
+  box-shadow: 0 3px 5px #dddddd;
+}
+
+.postlist figure {
+  margin: 0;
+}
+
+.postlist h2 {
+  margin: 0;
+  padding: 10px;
+  font-size: var(--f5);
+}
+
+.postlist article:first-of-type {
+  grid-column: 1 / -1;
+}
+
+.postlist article:first-of-type h2 {
+  padding: 15px 10px;
+  font-size: var(--f2);
+}
+
+.postlist article:first-of-type img {
+  height: var(--imgh);
+}
+
+.postlist article: img {
+  height: calc( var(--imgh) / 2 );
+  object-fit: cover;
+}
+/* ページネーション */
+.pagination {
+  grid-column: 1 / -1;
+  grid-row: auto;
+  margin-top: 40px;
+}
+
+.pagination .nav-links {
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 25px;
+  column-gap: 25px;
+  color: #888888;
+  font-family: 'Montserrat', sans-serif;
+  font-size: var(--f4);
+}
+
+.pagination .nav-links a {
+  color: #1b5e92;
+}
+
 /* PC版 */
 @media (min-width: 1024px) {
 
@@ -285,6 +351,10 @@ main {
 aside {
   grid-column: 6 / span2;
   align-self: start;
+}
+
+.postlist {
+  --imgh: 31vw;
 }
 
 }
